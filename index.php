@@ -17,7 +17,7 @@
 <div class="container">
     <form action="connect.php" method="post">
 
-        <h1>Registro de Estudiantes</h1>
+        <h1>Registro de Estudiantes y prueba de GIT</h1>
 
         <div class="form-control mt-3 pl-3 pr-3">
 
