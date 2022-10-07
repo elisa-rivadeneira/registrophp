@@ -13,11 +13,32 @@
 </head>
 <body>
 
+<?php
+include('condb.php');
+
+
+$nombre = $_POST['nombre'];
+
+$apellido = $_POST['apellido'];
+
+$celular = $_POST['celular'];
+$email = $_POST['email'];
+$curso = $_POST['curso'];
+$periodo = $_POST['periodo'];
+
+
+
+
+ 
+    
+
+?>
+
 
 <div class="container">
-    <form action="connect.php" method="post">
+    <form action="index.php" method="post">
 
-        <h1>Registro de Estudiantes y prueba de GIT</h1>
+        <h1>Registro de Estudiantes</h1>
 
         <div class="form-control mt-3 pl-3 pr-3">
 
@@ -76,6 +97,28 @@
 
         </div>
 
+<?php
+
+
+if(isset($_POST['nombre'])){
+    $consulta = "INSERT INTO registro
+    (nombre,apellido,celular,email,curso, periodo) VALUES ('$nombre', '$apellido','$celular','$email','$curso', '$periodo')";
+    if(mysqli_query($conex, $consulta)){
+        ?> 
+        <div class="alert alert-primary" role="alert">
+        Registro insertado correctamente!
+        </div>
+        <?php
+      
+    } else{
+        echo "ERROR: No se pudo ejecutar la consulta $consulta. " . mysqli_error($conex);
+    }
+
+}
+
+?>
+
+
 
         <div class="form-group mt-3 pl-3 pr-3">
         <button type="submit" class="btn btn-primary">Agregar</button>
@@ -92,7 +135,7 @@
 
     <table id="example" class="display table table-bordered" style="width:100%">
             <thead>
-                <tr>
+                <tr><th>Nro</th>
                     <th>Nombre</th>
                     <th>Apellidos</th>
                     <th>Celular</th>
@@ -108,6 +151,7 @@
     $inc = include("condb.php");
 
     if($inc){
+        $i = 0;
         $consultar= "SELECT * FROM registro";
         $result = mysqli_query($conex, $consultar);
         if($result){
@@ -118,7 +162,7 @@
             $ema= $row['EMAIL'];
             $curs = $row['CURSO'];
             $peri = $row['PERIODO'];
-
+            $i = $i +1;
 
    
 
@@ -127,6 +171,7 @@
 
     
                 <tr>
+                    <td><?php echo $i; ?></td>
                     <td><?php echo $nomb; ?></td>
                     <td><?php echo $apell; ?></td>
                     <td><?php echo $cel; ?></td>
