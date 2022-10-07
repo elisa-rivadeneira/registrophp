@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de Clientes</title>
+    <title>Registro de Estudiantes de CiberAulas</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.css"/>
 
@@ -38,8 +38,7 @@ $periodo = $_POST['periodo'];
 <div class="container">
     <form action="index.php" method="post">
 
-        <h1>Registro de Estudiantes</h1>
-
+        <h1>Registro de Estudiantes de CiberAulas</h1>
         <div class="form-control mt-3 pl-3 pr-3">
 
             <div class="row">
