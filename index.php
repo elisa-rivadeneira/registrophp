@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -142,6 +143,7 @@ if(isset($_POST['nombre'])){
                     <th>Email</th>
                     <th>Curso</th>
                     <th>Periodo</th>
+                    <th>Acción</th>
                 </tr>
             </thead>
             <tbody>
@@ -178,6 +180,8 @@ if(isset($_POST['nombre'])){
                     <td><?php echo $ema; ?></td>
                     <td><?php echo $curs; ?></td>
                     <td><?php echo $peri; ?></td>
+                    <td class="text-center"><strong><span style="color:red">X</span></strong></td>
+</td>
                 </tr>
      
                 <?php
@@ -200,7 +204,6 @@ if(isset($_POST['nombre'])){
 
  </div>
  
-
 
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.js"></script>
 
