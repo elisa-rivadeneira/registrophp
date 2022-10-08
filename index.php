@@ -10,7 +10,6 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.css"/>
 
 
-
 </head>
 <body>
 
@@ -157,6 +156,7 @@ if(isset($_POST['nombre'])){
         $result = mysqli_query($conex, $consultar);
         if($result){
            while($row = $result->fetch_array()){
+            $cod = $row['COD'];
             $nomb = $row['NOMBRE'];
             $apell = $row['APELLIDO'];
             $cel = $row['CELULAR'];
@@ -179,7 +179,47 @@ if(isset($_POST['nombre'])){
                     <td><?php echo $ema; ?></td>
                     <td><?php echo $curs; ?></td>
                     <td><?php echo $peri; ?></td>
-                    <td class="text-center"><strong><span style="color:red">X</span></strong></td>
+                    <td class="text-center">
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#confirm-delete" >
+<strong><span style="color:white">X</span></strong>
+
+</button>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="confirm-deleteLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="confirm-deleteLabel">Borrar Estudiante</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ¿Confirmar borrar el estudiante ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+       
+       
+        <a href="borrar.php?id=<?php echo $cod;?>" type="button" class="btn btn-primary btn-ok">Borrar Estudiante</a>
+        
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+                
+                </td>
 </td>
                 </tr>
      
@@ -202,18 +242,36 @@ if(isset($_POST['nombre'])){
 </div>
 
  </div>
- 
+
+
+
+
+
 
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.js"></script>
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-
+    <script src="bootstrap4/js/bootstrap.min.js"></script>   
     <script>
     $(document).ready(function () {
     $('#example').DataTable();
     });
     </script>
+
+
+<script>
+
+<script>
+$('#confirm-delete').on('show.bs.modal', function(e) {
+    $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
+});
+        </script>
+    </script>
+
+
+
+
                 </body>
 
 
