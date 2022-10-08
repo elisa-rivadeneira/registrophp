@@ -9,7 +9,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.css"/>
 
+<<<<<<< HEAD
     <script src="https://kit.fontawesome.com/9093dd3b73.js" crossorigin="anonymous"></script>
+=======
+
+>>>>>>> 9afbe7b5f5b4e5107a3d4ba91ed5e91771018adc
 </head>
 <body>
 
@@ -188,6 +192,7 @@ if(isset($_POST['nombre'])){
 
 </button>
 
+<<<<<<< HEAD
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editar" >
 <i class="fas fa-pen-to-square"></i>
 
@@ -198,6 +203,36 @@ if(isset($_POST['nombre'])){
 
 
            
+=======
+
+
+<!-- Modal -->
+<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="confirm-deleteLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="confirm-deleteLabel">Borrar Estudiante</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ¿Confirmar borrar el estudiante ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+       
+       
+        <a href="borrar.php?id=<?php echo $cod;?>" type="button" class="btn btn-primary btn-ok">Borrar Estudiante</a>
+        
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+>>>>>>> 9afbe7b5f5b4e5107a3d4ba91ed5e91771018adc
 
 
                 
@@ -227,6 +262,7 @@ if(isset($_POST['nombre'])){
 
 
 
+<<<<<<< HEAD
             <!-- Modal -->
             <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="confirm-deleteLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -339,6 +375,8 @@ if(isset($_POST['nombre'])){
                             </div>
                         </div>
                 </div>
+=======
+>>>>>>> 9afbe7b5f5b4e5107a3d4ba91ed5e91771018adc
 
 
 
