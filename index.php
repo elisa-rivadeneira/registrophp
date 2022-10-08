@@ -9,7 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.css"/>
 
-
+    <script src="https://kit.fontawesome.com/9093dd3b73.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -188,34 +188,16 @@ if(isset($_POST['nombre'])){
 
 </button>
 
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editar" >
+<i class="fas fa-pen-to-square"></i>
+
+</button>
 
 
-<!-- Modal -->
-<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="confirm-deleteLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="confirm-deleteLabel">Borrar Estudiante</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ¿Confirmar borrar el estudiante ?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-       
-       
-        <a href="borrar.php?id=<?php echo $cod;?>" type="button" class="btn btn-primary btn-ok">Borrar Estudiante</a>
-        
-        
-      </div>
-    </div>
-  </div>
-</div>
 
 
+
+           
 
 
                 
@@ -245,6 +227,118 @@ if(isset($_POST['nombre'])){
 
 
 
+            <!-- Modal -->
+            <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="confirm-deleteLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="confirm-deleteLabel">Borrar Estudiante</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        ¿Confirmar borrar el estudiante ?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    
+                    
+                        <a href="borrar.php?id=<?php echo $cod;?>" type="button" class="btn btn-primary btn-ok">Borrar Estudiante</a>
+                        
+                        
+                    </div>
+                    </div>
+                </div>
+                </div>
+
+
+            <!-- Modal -->
+                <div class="modal fade" id="editar" tabindex="-1" role="dialog" aria-labelledby="editarLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="confirm-deleteLabel">Editar Estudiante</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Editar Estudiante <?php echo $nomb;?>     </div>
+
+                            <table id="example" class="display table table-bordered" style="width:100%">
+                                
+
+                            <form action="guardaredicion.php?id=<?php echo $cod;?>" method="post">
+
+                                <div class="form-control mt-3 pl-3 pr-3">
+
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="nombre">Nombre</label>
+                                        <input type="nombre" value="<?php echo $nomb; ?>" name="nombre" class="form-control" id="nombre" aria-describedby="nombre" placeholder="Ingrese su nombre">
+                                    </div>
+
+                                    <div class="col">
+                                        <label for="apellido">Apellido</label>
+                                        <input type="apellido" value="<?php echo $apell; ?>" name="apellido" class="form-control" id="apellido" aria-describedby="apellido" placeholder="Ingrese su apellido">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="celular">Celular</label>
+                                        <input type="celular" value="<?php echo $cel; ?>" name="celular" class="form-control" id="celular" aria-describedby="celular" placeholder="Ingrese su apellido">
+                                    </div>
+
+                                    <div class="col">  
+                                        <label for="email">Email</label>
+                                        <input type="email" value="<?php echo $ema; ?>" name="email" class="form-control" id="email" aria-describedby="email" placeholder="Ingrese su apellido">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="nombre">Curso</label>
+                                    
+                                        
+                                        <select name ="curso" class="form-control mr-sm-2" id="curso">
+                                            <option value="<?php echo $curs; selected?>"><?php echo $curs;?></option>
+                                            <option value="scratch adultos">Programación Scratch Adultos</option>
+                                            <option value="scratch niños">Programación Scratch Niños</option>
+                                            <option value="canva">Canva</option>
+                                        </select>
+
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label for="nombre">Período</label>
+                                    
+
+                                        <select name="periodo" class="form-control mr-sm-2" id="curso">
+                                            <option value="<?php echo $peri; selected?>"><?php echo $peri;?></option>
+                                            <option value="octubre">Octubre</option>
+                                            <option value="noviembre">Noviembre</option>
+                                            <option value="diciembre">Diciembre</option>
+                                        </select>
+
+                                    </div>
+
+                                
+
+                                </div>
+
+
+
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                
+                                <input type="submit" name="frmenviar" value="Enviar" />
+                    
+                            </div>
+                        </div>
+                </div>
 
 
 
